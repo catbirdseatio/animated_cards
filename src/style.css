@@ -16,13 +16,12 @@ body {
     place-items: center;
     line-height: 1.6;
     background: var(--clr-neutral-900);
+    font-family: sans-serif;
 }
 
-.card {
+card {
     color: var(--clr-neutral-100);
     position: relative;
-    /* background-image: url(img/pexels-cottonbro-studio-5532845.jpg);
-    background-size: cover; */
     padding: 8rem 0 0;
     max-width: 35ch;
     border-radius: 0.5rem;
@@ -30,7 +29,7 @@ body {
     transition: transform 500ms ease;
 }
 
-.card:hover {
+card:hover {
     transform: scale(1.05);
 }
 
@@ -43,17 +42,33 @@ body {
     z-index: -1;
 }
 
-.card-content {
+card-content {
+    display: block;
     --padding: 1.5rem;
     padding: var(--padding);
     background:linear-gradient(hsl(0 0% 0% / 0),
     hsl(20 0% 0% / .3) 20%,
     hsl(0 0% 0% / 1));
+    transform: translateY(65%);
+    transition: transform 500ms ease;
+}
+
+card-content > * {
+    opacity: 0;
+}
+
+card:hover card-content > * {
+    opacity: 1;
+}
+
+card:hover card-content {
+    transform: translateY(0);
 }
 
 .card-title {
     position: relative;
     width: max-content;
+    /* border: 1px solid red; */
 }
 
 .card-title::after {
@@ -64,6 +79,13 @@ body {
     bottom: 0;
     background-color: var(--clr-accent-400);
     width: calc(100% + var(--padding));
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 500ms ease;
+}
+
+card:hover .card-title::after {
+    transform: scaleX(1);
 }
 
 .card-body {
