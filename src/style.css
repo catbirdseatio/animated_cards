@@ -20,12 +20,27 @@ body {
 
 .card {
     color: var(--clr-neutral-100);
-    background-image: url(img/pexels-cottonbro-studio-5532845.jpg);
-    background-size: cover;
+    position: relative;
+    /* background-image: url(img/pexels-cottonbro-studio-5532845.jpg);
+    background-size: cover; */
     padding: 8rem 0 0;
     max-width: 35ch;
     border-radius: 0.5rem;
     overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .card-content {
@@ -38,18 +53,21 @@ body {
 
 .card-title {
     position: relative;
-    outline: 1px solid red;
     width: max-content;
 }
 
 .card-title::after {
     content: "";
     position: absolute;
-    height: 3px;
-    left: calc(var(--padding) * -1 );
+    height: 4px;
+    left: calc(var(--padding) * -1);
     bottom: 0;
     background-color: var(--clr-accent-400);
     width: calc(100% + var(--padding));
+}
+
+.card-body {
+    color: rgb(255 255 255 / 0.8);
 }
 
 .button {
@@ -58,7 +76,8 @@ body {
     text-decoration: none;
     color: var(--clr-neutral-900);
     background-color: var(--clr-accent-400);
-    padding: 0.5em 1.25em;
+    padding: 0.5em 1.25rem;
+    border-radius: .25rem;
 }
 
 .button:hover,
