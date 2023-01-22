@@ -1,7 +1,7 @@
 :root {
     --clr-neutral-900: hsl(207, 19%, 9%);
     --clr-neutral-100: hsl(0, 0%, 100%);
-    --clr-accent-400: hsl(142, 90%, 61%);
+    --clr-accent-400: hsl(359, 96%, 36%);
 }
 
 *,
@@ -17,6 +17,25 @@ body {
     line-height: 1.6;
     background: var(--clr-neutral-900);
     font-family: sans-serif;
+}
+
+card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    card-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 card {
